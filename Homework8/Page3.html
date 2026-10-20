@@ -1,0 +1,53 @@
+<html>
+<header>
+    <title>My Example Website! Contact Me!</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--There's a bit of goofy-ness to this code,
+    but it works-->
+    <script>
+        function areRequirementsMet() {
+            var fName = document.getElementById("fName").value;
+            var lName = document.getElementById("lName").value;
+            var email = document.getElementById("email").value;
+            var yes = document.getElementById("yes").checked;
+            var no = document.getElementById("no").checked;
+
+            if (fName.length > 0 && lName.length > 0 && email.length > 0 && (yes == true || no == true)) {
+                window.alert("Form Submitted!");
+                document.getElementById("fName").style.backgroundColor="seaGreen";
+                document.getElementById("lName").style.backgroundColor="seaGreen";
+                document.getElementById("email").style.backgroundColor="seaGreen";
+            } else {
+                window.alert("Missing Requirements");
+                if (!fName.length > 0) {
+                    document.getElementById("fName").focus();
+                    document.getElementById("fName").style.backgroundColor="red";
+                } else if (!lName.length > 0) {
+                    document.getElementById("lName").focus();
+                    document.getElementById("lName").style.backgroundColor="red";
+                } else if (!email.length > 0) {
+                    document.getElementById("email").focus();
+                    document.getElementById("email").style.backgroundColor="red";
+                } 
+            }
+        }
+</script>
+</header>
+<body class="container">
+    <h1>Welcome to My Website! Contact Me!</h1>
+    <nav><a href="index.html">Home</a> <a href="Page2.html">Page 2</a></nav>
+    <main>
+        <!--This page uses a mix of my style sheet and bootstrap's style sheet!-->
+        <form action="nextPage.html" type="Post" id="formId">
+            *First Name:<input type="text" value="" id="fName"><br>
+            *Last Name:<input type="text" value="" id="lName"><br>
+            *Email:<input type="text" value="" id="email"><br>
+            *Do you except the terms of agreement?<br>
+            <input type="radio" name="yes/no" value="yes" id="yes">yes<br>
+            <input type="radio" name="yes/no" value="no" id="no">no<br>
+            <button id="submit" type="button" onClick="areRequirementsMet()">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
